@@ -1,13 +1,13 @@
 import axios from "axios";
 
 import Constants from './Constants';
-const { api,  } = Constants.URLS;
+const { api } = Constants.URLS;
 
 import { Popup } from 'utils/SnackbarUtil';
 
 function handleResponse(response) {
   const { status, data } = response;
-  if (status === 200) Popup.success("Sucessful got the data");
+  if (status === 200) Popup.success("Successful got the data");
   return data;
 };
 
@@ -26,7 +26,7 @@ const apiInstance = axios.create({
 const HttpHelperUtil = {
   get: function (url) {
     return apiInstance
-      .get(`/name/${url}`)
+      .get(`${url}`)
       .then(handleResponse)
       .catch(handleError);
   },
